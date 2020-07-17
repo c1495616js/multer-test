@@ -117,3 +117,5 @@ dist
 
 # upload folder
 uploads/*
+# but keep upload folder
+!uploads/.gitkeep
