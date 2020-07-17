@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const { format } = require("date-fns");
+const path = require("path");
 
 const app = express();
 
@@ -22,7 +23,11 @@ var storage = multer.diskStorage({
     console.log("------::", JSON.stringify(req.test));
     cb(
       null,
-      file.originalname + "-" + format(Date.now(), "yyyy-MM-dd-HH:mm:ss")
+      file.originalname +
+        "-" +
+        format(Date.now(), "yyyy-MM-dd-HH:mm:ss") +
+        "-" +
+        path.extname(file.originalname)
     );
   },
 });
